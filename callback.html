@@ -1,0 +1,10 @@
+<!doctype html><meta charset="utf-8"><title>Shorts Machine – login callback</title>
+<style>body{font-family:-apple-system,Helvetica,Arial,sans-serif;max-width:720px;margin:40px auto;padding:0 20px;line-height:1.55;color:#222}code{display:block;word-break:break-all;background:#f3f3f3;padding:12px;border-radius:6px;margin:12px 0}button{font-size:16px;padding:8px 14px}</style>
+<h1>Login received</h1>
+<p>This page only catches the login redirect for the Shorts Machine publishing tool. It now hands the code to the tool running on this computer; if that does not work, copy the address below and paste it into the waiting terminal.</p>
+<code id="u"></code>
+<button onclick="navigator.clipboard.writeText(location.href).then(()=>{this.textContent='Copied'})">Copy address</button>
+<script>
+document.getElementById('u').textContent = location.href;
+if (location.search.includes('code=')) { setTimeout(() => { location.replace('http://localhost:8765/callback' + location.search); }, 300); }
+</script>
